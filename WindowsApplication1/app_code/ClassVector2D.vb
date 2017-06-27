@@ -102,41 +102,6 @@ Public Class ClassVector2D
         Me.SetSelf(Me.GetAbs())
     End Sub
 
-    ''' <summary>
-    ''' 計算由自已及出射向量計算法線向量
-    ''' </summary>
-    ''' <param name="VectorOut">出射向量</param>
-    ''' <param name="N1">介質1</param>
-    ''' <param name="N2">介質2</param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Function NormalVectorByRefraction(ByVal VectorOut As ClassVector2D, ByVal N1 As Double, ByVal N2 As Double) As ClassVector2D
-        Dim Vytmp As Double
-        Dim Result As New ClassVector2D
-
-        Vytmp = (N1 * Me.YValue - N2 * VectorOut.YValue) / (N1 * Me.XValue - N2 * VectorOut.XValue)
-        Result.X = 1
-        Result.Y = Vytmp
-        Result.Abs()
-        NormalVectorByRefraction = Result
-    End Function
-
-    ''' <summary>
-    ''' 由自己及反射向量計算法線向量
-    ''' </summary>
-    ''' <param name="VectorOut">反射向量</param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Function NormalVectorByReflection(ByVal VectorOut As ClassVector2D) As ClassVector2D
-        Dim Vytmp As Double
-        Dim Result As New ClassVector2D
-
-        Vytmp = (Me.XValue - VectorOut.X) / (VectorOut.Y - Me.YValue)
-        Result.X = 1
-        Result.Y = -Vytmp   '因為和法線和反射線夾角大於90度
-        Result.Abs()
-        NormalVectorByReflection = Result
-    End Function
 
     ''' <summary>
     ''' 計算向量外積
